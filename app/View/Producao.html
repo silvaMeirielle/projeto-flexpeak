@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Sistema de Produção de Perfumes</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <div class="d-flex" id="wrapper">
+
+            <!-- Sidebar -->
+            <div class="bg-light border-right" id="sidebar-wrapper">
+                <div class="sidebar-heading">Perfumaria </div>
+                <div class="list-group list-group-flush">
+                    <a href="Producao.html" class="list-group-item list-group-item-action bg-light" >Produção</a>
+                    <a href="Relatorios.html" class="list-group-item list-group-item-action bg-light"> Relatórios</a>
+                    <hr>
+                </div>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <button class="btn btn-primary" id="menu-toggle">Esconder Menu</button>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="Home.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Sair</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="">
+                    <div id="">
+
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+
+                            <div class="row">
+                                <div class="col-md-4 order-md-2 mb-4">
+                                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+
+                                    </h4>
+                                    <ul class="list-group mb-3">
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div>
+                                                <h6 class="my-0">Nome do Perfume</h6>
+                                                <small class="text-muted">nome</small>
+                                            </div>
+                                            <span class="text-muted"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div>
+                                                <h6 class="my-0">Fragância</h6>
+                                                <small class="text-muted">fragância utilizada</small>
+                                            </div>
+                                            <span class="text-muted"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div>
+                                                <h6 class="my-0">Responsavel</h6>
+                                                <small class="text-muted">Nome do responsavel</small>
+                                            </div>
+
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div>
+                                                <h6 class="my-0">Quantidade</h6>
+                                                <small class="text-muted">Quantidade em ML</small>
+                                            </div>
+                                            <span class="text-muted"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between bg-light">
+                                            <div class="text-success">
+                                                <h6 class="my-0">Quantidade em Estoque</h6>
+                                                <small>$</small>
+                                            </div>
+                                            <span class="text-success"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-8 order-md-1">
+                                    <h4 class="mb-3">PRODUÇÃO</h4>
+                                    <form class="needs-validation" novalidate>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="firstName">Nome do perfume</label>
+                                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                                            </div>
+
+                                            <div class="col-md-6 mb-3">
+                                                <label for="lastName">Nome do Tecnico</label>
+                                                <input type="text" class="form-control" id="lastName" placeholder="responsavel" value="" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="email">Quantidade </label>
+                                            <input type="email" class="form-control" id="" placeholder="em ML">
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-5 mb-3">
+                                                <label for="country">Fragância</label>
+                                                <select class="custom-select d-block w-100" id="country" required>
+                                                    <option value="">Selecione</option>
+                                                                                              
+                                                    <option>                                                  
+                                                       {% for Fragancias in Fragancias %}
+                                                         {{ fragancias.frag_cod}}
+                                                          {{ Fragancias.frag_desc}}
+                                                        {% endfor %}
+                                                    </option>
+                                                </select>
+
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="state">Ingrediente</label>
+                                                <select class="custom-select d-block w-100" id="state" required>
+                                                    <option value="">Selecione</option>
+                                                    <option>{% for Ingredientes in indredientes %}
+                                                         {{ Ingredientes.ing_cod}}
+                                                          {{ Ingredientes.ing_desc}}
+                                                        {% endfor %}</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <a href="#" class="btn btn-secondary my-2">Finalizar</a>
+                                        </nav>
+
+                                </div>
+                            </div>  
+                            <!-- /#page-content-wrapper -->
+
+                    </div>
+                    <!-- /#wrapper -->
+
+                    <!-- Bootstrap core JavaScript -->
+                    <script src="vendor/jquery/jquery.min.js"></script>
+                    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                    <!-- Menu Toggle Script -->
+                    <script>
+$("#menu-toggle").click(function (e) {
+e.preventDefault();
+$("#wrapper").toggleClass("toggled");
+});
+                    </script>
+
+                    </body>
+                    </html>
